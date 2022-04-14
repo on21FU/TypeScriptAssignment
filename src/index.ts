@@ -1,3 +1,9 @@
-//THIS IS THE ENTRY FILE - WRITE YOUR MAIN LOGIC HERE!
+import {  } from "./dom-utils";
+import { allArticles, loadArticles } from "./manage-data"
 
+loadArticles().then(main);
 
+function main(){
+    console.log(allArticles);
+
+}
