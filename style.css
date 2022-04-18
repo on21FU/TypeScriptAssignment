@@ -61,7 +61,6 @@ nav ul li a:hover{
 #filter {
     box-sizing: border-box;
     min-height: 200px;
-    display: inline-block;
     width: 20%;
     float: left;
     padding: 10px;
@@ -73,9 +72,8 @@ nav ul li a:hover{
 #shop_container{
     box-sizing: border-box;
     min-height: 600px;
-    display: inline-block;
-    width: 79%;
     float: right;
+    width: 79%;
     padding-top: 10px;
 }
 #main h3 {
@@ -97,7 +95,7 @@ nav ul li a:hover{
     flex-wrap: wrap;
 }
 .article {
-    width: 33.3333333;
+    width: 33%;
     margin-bottom: 40px;
 }
 .article:hover {
@@ -132,5 +130,5 @@ nav ul li a:hover{
     color: white;
 }
 .article_content button:hover{
-    background-color: rgb(34, 38, 44);
+    background-color: rgb(49, 52, 56);
 }
