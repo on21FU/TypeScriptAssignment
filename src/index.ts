@@ -1,6 +1,6 @@
 import { categorySelector, filterApplyButton, innerShopContainer } from "./dom-utils";
 import { selected, updateSelected } from "./filter-options";
-import { allArticles, loadArticles } from "./manage-data";
+import { allArticles, loadArticles, removeArticles } from "./manage-data";
 import { addEventListenersToCartButtons, formatePrice } from "./side-functions";
 
 loadArticles().then(main);
@@ -8,6 +8,7 @@ loadArticles().then(main);
 function main(){
     createArticles();
     function createArticles(){
+        removeArticles();
         for(let article of allArticles){
             if(selected === "all" || selected === article.category){
                 const newArticle = document.createElement('div');
