@@ -97,17 +97,24 @@ nav ul li a:hover{
 .article {
     width: 33%;
     margin-bottom: 40px;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 0;
 }
 .article:hover {
-    border-style: solid;
     border-color: lightgray;
-    border-width: 1px;
 }
 .article_picture {
-    height: 250px;
-    text-align: center;
-    margin: 0 auto;
+    min-height: 250px;
+    max-height: 250px;
     margin-bottom: 30px;
+    display: flex;
+    align-items: center;
 }
 .article_picture img {
     max-width: 100%;
@@ -116,19 +123,32 @@ nav ul li a:hover{
 .article_content{
     height: 100%;
     width: 80%;
-    margin: 0 auto;
     text-align: center;
 } 
+#articleID{
+    visibility: hidden; 
+    line-height: 1px;
+    position: absolute;
+}
 .article_content p {
     margin-bottom: 20px;
     line-height: 25px;
 }
-.article_content button {
+.article_buyInformation{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; 
+}
+.article_buyInformation #price{
+    margin-bottom: 10px;
+}
+.cartButton{
     padding: 10px 20px;
     border: none;
     background-color: rgb(19,25,33);
     color: white;
 }
-.article_content button:hover{
+.cartButton:hover{
     background-color: rgb(49, 52, 56);
 }

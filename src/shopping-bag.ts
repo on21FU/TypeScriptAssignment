@@ -1,24 +1,22 @@
 import { allArticles } from "./manage-data";
 
-let shoppingCart: Array<any>;
+let shoppingCart: Object[] = [];
 
 export function addToCart(event: any){
-    let articleTitel = getArticleTitle(event);
-    let article = getArticle(articleTitel);
-    shoppingCart.push(article);
+    let articleID = Number.parseInt(getArticleID(event));
+    let article = getArticle(articleID);
+    shoppingCart.push(article);    
     console.log(shoppingCart);
 }
 
 
-
-function getArticleTitle(event: any){
-    let clickedButton = event.target;
-    return (clickedButton.parentElement.childNodes[1].innerText) // gibt den Titel vom jeweiligen Produkt
+function getArticleID(event: any){
+    return (event.target.partentElement.previousElementSibling.childNodes[1].innerHTML) // gibt die ID vom jeweiligen Produkt
 }
-function getArticle(articleTitel: String){
-    for (let articles of allArticles){
-        if(articles.title == articleTitel){
-            return articles
+function getArticle(articleID: Number){
+    for (let article of allArticles){
+        if(article.id === articleID){
+            return article
         }
     }
 }

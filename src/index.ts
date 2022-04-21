@@ -15,10 +15,13 @@ function main(){
                 <img src="${article.image}">
             </div>
             <div class="article_content">
+                <p id="articleID">${article.id}</p>
                 <p>${article.title}</p>
-                <p id="price">${article.price} €</p>
-               <button class="cartButton">In den Warenkorb</button>
             </div>
+            <div class="article_buyInformation">
+                <p id="price">${article.price} €</p>
+                <button class="cartButton">In den Warenkorb</button>
+            </div>            
         `;
         innerShopContainer.appendChild(newArticle);
         }
