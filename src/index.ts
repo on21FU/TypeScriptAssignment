@@ -1,4 +1,4 @@
-import { innerShopContainer, cartButtons } from "./dom-utils";
+import { innerShopContainer, cartButtons, formatePrice } from "./dom-utils";
 import { allArticles, loadArticles } from "./manage-data";
 import { addToCart } from "./shopping-bag";
 
@@ -19,7 +19,7 @@ function main(){
                 <p>${article.title}</p>
             </div>
             <div class="article_buyInformation">
-                <p id="price">${article.price} €</p>
+                <p id="price">${formatePrice(article.price)} €</p>
                 <button class="cartButton">In den Warenkorb</button>
             </div>            
         `;

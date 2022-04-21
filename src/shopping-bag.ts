@@ -11,7 +11,7 @@ export function addToCart(event: any){
 
 
 function getArticleID(event: any){
-    return (event.target.partentElement.previousElementSibling.childNodes[1].innerHTML) // gibt die ID vom jeweiligen Produkt
+    return (event.target.parentElement.previousElementSibling.childNodes[1].innerHTML) // gibt die ID vom jeweiligen Produkt
 }
 function getArticle(articleID: Number){
     for (let article of allArticles){
