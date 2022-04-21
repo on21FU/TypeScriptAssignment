@@ -1,5 +1,5 @@
-import { categorySelector, filterApplyButton, innerShopContainer } from "./dom-utils";
-import { selected, updateSelected } from "./filter-options";
+import { categorySelector,  innerShopContainer, sortBySelector } from "./dom-utils";
+import { selected, updateSelected, sortArticle } from "./filter-options";
 import { allArticles, loadArticles, removeArticles } from "./manage-data";
 import { addEventListenersToCartButtons, formatePrice } from "./side-functions";
 
@@ -30,10 +30,11 @@ function main(){
                 }
             }        
         addEventListenersToCartButtons();
-        categorySelector.addEventListener('change', () => updateSelected(categorySelector.value));
-        filterApplyButton.addEventListener('click', createArticles);
     }
-
-    
+    categorySelector.addEventListener('change', () => updateSelected(categorySelector.value));
+    categorySelector.addEventListener('change', createArticles);
+    categorySelector.addEventListener('change', () => sortArticle(sortBySelector.value));
+    sortBySelector.addEventListener('change', () => sortArticle(sortBySelector.value));
+      
 
 }
