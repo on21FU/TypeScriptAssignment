@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/style.css">
 </head>
 <body>
+    <div id="dark-background"></div>
     <header>
         <div class="wrapper">
             <p>Florian Uhlschmied's Online Shop</p>
@@ -16,12 +17,30 @@
                 <ul>
                     <li href=""><a>Startseite</a></li>
                     <li href=""><a>Shop</a></li>
-                    <li href=""><a><img id="shopping-cart-icon"src="/icons/shopping-bag.png" alt="Warenkorb"></a></li>
+                    <li id="shopping-cart-click" href=""><a><img id="shopping-cart-icon"src="/icons/shopping-bag.png" alt="Warenkorb"></a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <div id="main">
+        <div id="shopping-bag-popup">
+            <div id="close-shopping-cart">
+                <h2>< Weiter einkaufen</h2>
+            </div>
+            <div id="shopping-bag-content">
+                <h2>Warenkorb</h2>
+            <div class="divider"></div>
+            <div id="shopping-bag-container">
+                <p>Dein Warenkorb ist leer</p>
+            </div>
+            <div class="divider"></div>
+            <div id="shopping-bag-price-information">
+                <h2>Zwischensumme</h2>
+                <h2 id="shopping-bag-amount">20,35 €</h2>
+            </div>
+            <button>Zur Kasse</button>
+            </div>            
+        </div>        
         <div id="filter">
             <h3>Filteroptionen</h3>
             <div class="divider"></div>

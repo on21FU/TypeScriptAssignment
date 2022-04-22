@@ -1,6 +1,7 @@
-import { categorySelector,  innerShopContainer, sortBySelector } from "./dom-utils";
+import { categorySelector,  closeShoppingCartButton,  innerShopContainer, shoppingCartIcon, sortBySelector } from "./dom-utils";
 import { selected, updateSelected, sortArticle } from "./filter-options";
 import { allArticles, loadArticles, removeArticles } from "./manage-data";
+import { closeShoppingCart, showShoppingCart } from "./shopping-cart";
 import { addEventListenersToCartButtons, formatePrice } from "./side-functions";
 
 loadArticles().then(main);
@@ -35,6 +36,8 @@ function main(){
     categorySelector.addEventListener('change', createArticles);
     categorySelector.addEventListener('change', () => sortArticle(sortBySelector.value));
     sortBySelector.addEventListener('change', () => sortArticle(sortBySelector.value));
+    shoppingCartIcon.addEventListener('click', showShoppingCart);
+    closeShoppingCartButton.addEventListener('click', closeShoppingCart);
       
 
 }
