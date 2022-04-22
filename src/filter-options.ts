@@ -1,10 +1,12 @@
-import { innerShopContainer } from "./dom-utils";
+
+import { innerShopContainer, shopContainerHeading } from "./dom-utils";
 import { removeArticles } from "./manage-data";
 
 export let selected = "all";
 
 export function updateSelected(value: string){
     selected = value;
+    updateShopHeading(value);
 }
 
 export function sortArticle(vaule: String){
@@ -85,4 +87,25 @@ function addNewChilds(newChildNodes: Array<any>){
     for(let newChild of newChildNodes){
         innerShopContainer.appendChild(newChild);
     }
+}
+function updateShopHeading(value: string){
+    let newHeading: string;
+    switch (value){
+        case "men's clothing":
+            newHeading = "Herrenklamotten";
+            break;
+        case "women's clothing":
+            newHeading = "Damenklamotten";
+            break;
+        case "jewelery":
+            newHeading = "Schmuck";
+            break;
+        case "electronics":
+            newHeading = "Elektronik";
+            break;
+        default:
+            newHeading = "Ergebnisse";
+            break;
+    }
+    shopContainerHeading.innerText = newHeading;
 }
