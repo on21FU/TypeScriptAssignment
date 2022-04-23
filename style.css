@@ -195,14 +195,17 @@ nav ul li a:hover{
     width: 100%;
     padding: 10px 20px;
     border: none;
-    background-color: rgb(19,25,33);
+    background-color: #25A584;
     color: white;
 }
 #shopping-bag-popup button:hover{
-    background-color: rgb(49, 52, 56);
+    background-color: #1a725c;
 }
 #shopping-bag-container{
     padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 #close-shopping-cart{
     background-color: rgb(39, 39, 39);
@@ -235,21 +238,39 @@ nav ul li a:hover{
 .cartArticle{
     display: flex;
     justify-content: space-between;
-    border-style: solid;
-    border-color: rgb(68, 60, 60);
-    border-width: 1px;
+    align-items: center;
+    height: 170px;
 }
 .cartArticle-img{
     width: 20%;
-    height: 20%;
+    display: flex;
+    align-items: center;
 }
 .cartArticle-img img{
     width: 100%;
-    height: 100%;
 }
 .cartArticle-content{
-    width: 50%;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+}
+.cartArticle-content #price{
+    font-weight: bold;
 }
 .cartArticle-removebtn{
-    width: 20%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #25A584;
+    border-style: solid;
+    border-color: #25A584;
+    border-width: 3px;
+}
+#shopping-bag-container .divider{
+    margin-bottom: 15px;
 }
