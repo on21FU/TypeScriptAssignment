@@ -1,3 +1,4 @@
+import { shoppingBagCointainer } from "./dom-utils";
 import { allArticles } from "./manage-data";
 
 let shoppingCart: Object[] = [];
@@ -6,7 +7,7 @@ export function addToCart(event: any){
     let articleID = Number.parseInt(getArticleID(event));
     let article = getArticle(articleID);
     shoppingCart.push(article);    
-    console.log(shoppingCart);
+    buildCartArticle();
 }
 
 
@@ -19,4 +20,10 @@ function getArticle(articleID: Number){
             return article
         }
     }
+}
+function buildCartArticle(){
+    if(shoppingBagCointainer.childNodes[1].nodeName === "P"){
+        shoppingBagCointainer.childNodes[1].remove();
+    }
+    
 }

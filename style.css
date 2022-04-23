@@ -228,3 +228,28 @@ nav ul li a:hover{
     z-index: 11;
     background-color: rgba(0, 0, 0, 0.5);
 }
+.stop-scrolling{
+    height: 100%;
+    overflow: hidden;
+}
+.cartArticle{
+    display: flex;
+    justify-content: space-between;
+    border-style: solid;
+    border-color: rgb(68, 60, 60);
+    border-width: 1px;
+}
+.cartArticle-img{
+    width: 20%;
+    height: 20%;
+}
+.cartArticle-img img{
+    width: 100%;
+    height: 100%;
+}
+.cartArticle-content{
+    width: 50%;
+}
+.cartArticle-removebtn{
+    width: 20%;
+}
