@@ -76,6 +76,9 @@ function removeArticleFromCart(event: any){
     event.target.parentElement.remove();    // entfernt Artikel von Warenkorb
     removeArticleFromCartArray(event.target.parentElement.childNodes[3].childNodes[1].innerHTML);
     updateShoppingCartAmount();
+    if(shoppingCart.length === 0){
+        addStandartTextToCart();
+    }
 }
 function removeArticleFromCartArray(articleID: string){
     for(let cartArticle of shoppingCart){
@@ -87,12 +90,20 @@ function removeArticleFromCartArray(articleID: string){
     resetCartButton(articleID);
 }
 function resetCartButton(articleID: string){
-    for(let i = innerShopContainer.childNodes.length-1; i>=1; i--){   
-        let actualArticleID = innerShopContainer.childNodes[i].childNodes[3].childNodes[1].textContent;
-        if(actualArticleID === articleID){
-            innerShopContainer.childNodes[i].childNodes[5].childNodes[3].textContent = "In den Warenkorb";
+    let checker = false;
+    for(let article of shoppingCart){
+        if(article.id === Number.parseInt(articleID)){
+            checker = true; // Artikel ist immernoch im Warenkorb (weil er mehrfach vorhanden war)
         }
     }
+    if(checker === false){
+        for(let i = innerShopContainer.childNodes.length-1; i>=1; i--){   
+            let actualArticleID = innerShopContainer.childNodes[i].childNodes[3].childNodes[1].textContent;
+            if(actualArticleID === articleID){
+                innerShopContainer.childNodes[i].childNodes[5].childNodes[3].textContent = "In den Warenkorb";
+            }
+        }
+    }    
 }
 function updateShoppingCartAmount(){
     let amount = 0;
@@ -100,4 +111,9 @@ function updateShoppingCartAmount(){
         amount += article.price;
     }
     shoppingBagAmount.innerText = formatePrice(amount) + " €";
+}
+function addStandartTextToCart(){
+    const standartText = document.createElement('p');
+    standartText.innerHTML = "Dein Warenkorb ist leer";
+    shoppingBagCointainer.appendChild(standartText);
 }

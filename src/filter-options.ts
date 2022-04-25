@@ -9,8 +9,8 @@ export function updateSelected(value: string){
     updateShopHeading(value);
 }
 
-export function sortArticle(vaule: String){
-    switch (vaule){
+export function sortArticle(value: String){
+    switch (value){
         case "any":            
             break;
         case "price down":
