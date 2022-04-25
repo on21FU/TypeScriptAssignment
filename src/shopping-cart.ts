@@ -1,4 +1,4 @@
-import { noScrollContainer, darkBackground, shoppingBagCointainer, shoppingCartSidebar } from "./dom-utils";
+import { noScrollContainer, darkBackground, shoppingBagCointainer, shoppingCartSidebar, innerShopContainer, shoppingBagAmount } from "./dom-utils";
 import { allArticles } from "./manage-data";
 import { formatePrice } from "./side-functions";
 
@@ -21,6 +21,8 @@ export function addToCart(event: any){
     let article = getArticle(articleID);
     shoppingCart.push(article);    
     buildCartArticle();
+    event.target.innerHTML = "Im Warenkorb";
+    updateShoppingCartAmount();
 }
 
 function getArticleID(event: any){
@@ -74,6 +76,7 @@ function removeArticleFromCart(event: any){
     event.target.parentElement.nextElementSibling.remove();     // entfernt den letzten Divider vom Warenkorb
     event.target.parentElement.remove();    // entfernt Artikel von Warenkorb
     removeArticleFromCartArray(event.target.parentElement.childNodes[3].childNodes[1].innerHTML);
+    updateShoppingCartAmount();
 }
 function removeArticleFromCartArray(articleID: string){
     for(let cartArticle of shoppingCart){
@@ -81,4 +84,20 @@ function removeArticleFromCartArray(articleID: string){
             shoppingCart.splice(shoppingCart.indexOf(cartArticle), 1);
         }
     }
+    resetCartButton(articleID);
+}
+function resetCartButton(articleID: string){
+    for(let i = innerShopContainer.childNodes.length-1; i>=1; i--){   
+        let actualArticleID = innerShopContainer.childNodes[i].childNodes[3].childNodes[1].textContent;
+        if(actualArticleID === articleID){
+            innerShopContainer.childNodes[i].childNodes[5].childNodes[3].textContent = "In den Warenkorb";
+        }
+    }
+}
+function updateShoppingCartAmount(){
+    let amount = 0;
+    for(let article of shoppingCart){
+        amount += article.price;
+    }
+    shoppingBagAmount.innerText = formatePrice(amount) + " €";
 }

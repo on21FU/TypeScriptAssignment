@@ -9,6 +9,7 @@ export const closeShoppingCartButton = document.getElementById('close-shopping-c
 export const darkBackground = document.getElementById('dark-background') as HTMLDivElement;
 export const noScrollContainer = document.querySelector('body') as HTMLBodyElement;
 export const shoppingBagCointainer = document.getElementById('shopping-bag-container') as HTMLDivElement;
+export const shoppingBagAmount = document.getElementById('shopping-bag-amount') as HTMLHeadingElement;
 
 
 
