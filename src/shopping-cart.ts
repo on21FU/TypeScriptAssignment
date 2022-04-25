@@ -23,6 +23,7 @@ export function addToCart(event: any){
     buildCartArticle();
     event.target.innerHTML = "Im Warenkorb";
     updateShoppingCartAmount();
+    alert("Artikel wurde hinzugefügt");
 }
 
 function getArticleID(event: any){
@@ -54,9 +55,7 @@ function buildCartArticle(){
                 <p>${article.title}</p></br>
                 <p id="price">${formatePrice(article.price)} €</p>
             </div>
-            <div class="cartArticle-removebtn">
-                <p>X</p>
-            </div>
+            <button class="cartArticle-removebtn">X</button>
         `;
         shoppingBagCointainer.appendChild(newCartArticle);
 
@@ -67,7 +66,7 @@ function buildCartArticle(){
         shoppingBagCointainer.appendChild(divider);
 }
 function addEventListenersToRemoveBtn(){
-    const cartArticleRemoveBtns = document.querySelectorAll('.cartArticle-removebtn') as NodeListOf<HTMLDivElement>;
+    const cartArticleRemoveBtns = document.querySelectorAll('.cartArticle-removebtn') as NodeListOf<HTMLButtonElement>;
     cartArticleRemoveBtns[cartArticleRemoveBtns.length-1].addEventListener('click', function(event){
         removeArticleFromCart(event);
     });
@@ -82,6 +81,7 @@ function removeArticleFromCartArray(articleID: string){
     for(let cartArticle of shoppingCart){
         if(cartArticle.id === Number.parseInt(articleID)){
             shoppingCart.splice(shoppingCart.indexOf(cartArticle), 1);
+            break;
         }
     }
     resetCartButton(articleID);
