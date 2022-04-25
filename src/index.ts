@@ -38,6 +38,4 @@ function main(){
     sortBySelector.addEventListener('change', () => sortArticle(sortBySelector.value));
     shoppingCartIcon.addEventListener('click', showShoppingCart);
     closeShoppingCartButton.addEventListener('click', closeShoppingCart);
-      
-
 }

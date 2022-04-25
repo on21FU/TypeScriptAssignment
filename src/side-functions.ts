@@ -1,5 +1,5 @@
 import { cartButtons } from "./dom-utils";
-import { addToCart } from "./shopping-bag";
+import { addToCart } from "./shopping-cart";
 
 export function formatePrice(price: number){
     let priceSplit = price.toString().split(".");    
